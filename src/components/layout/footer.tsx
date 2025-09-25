@@ -1,26 +1,84 @@
 import Link from 'next/link';
-import { Building } from 'lucide-react';
+import Image from 'next/image';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary">
-      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between md:flex-row">
-          <div className="mb-4 flex items-center justify-center md:mb-0 md:justify-start">
-            <Building className="mr-2 h-6 w-6 text-primary" />
-            <span className="font-headline text-lg font-bold">Sawarn Empire</span>
+    <footer className="bg-black text-white rounded-t-3xl overflow-hidden">
+  <div className="container mx-auto px-6 lg:px-8 pt-16 pb-24 lg:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+                Engage with Us in<br />
+                Conversation.
+              </h2>
+              <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
+                We are dedicated to creating exceptional living experiences 
+                through carefully curated properties, personalized service, 
+                and unwavering commitment to quality. With years of 
+                expertise in the real estate industry, we transform dreams 
+                into reality.
+              </p>
+            </div>
+
+            {/* Social icons moved to the right column under the image */}
           </div>
-          <p className="text-center text-sm text-muted-foreground md:text-left">
-            &copy; {new Date().getFullYear()} Sawarn Empire. All rights reserved.
+
+          {/* Right Content - Interior Image + social icons under image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="flex flex-col items-center lg:items-end">
+              <div className="rounded-3xl overflow-hidden shadow-2xl max-w-md w-full">
+                <Image
+                  src="/interior-bedroom.jpg" // You'll need to add this image to your public folder
+                  alt="Modern bedroom interior"
+                  width={600}
+                  height={360}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              <div className="mt-6 flex items-center gap-6">
+                <Link
+                  href="#"
+                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors duration-200"
+                >
+                  <Facebook className="w-6 h-6 text-black" />
+                </Link>
+
+                <Link
+                  href="#"
+                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors duration-200"
+                >
+                  <Instagram className="w-6 h-6 text-black" />
+                </Link>
+
+                <Link
+                  href="#"
+                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors duration-200"
+                >
+                  <Linkedin className="w-6 h-6 text-black" />
+                </Link>
+
+                <Link
+                  href="#"
+                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors duration-200"
+                >
+                  <Twitter className="w-6 h-6 text-black" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  {/* Bottom Copyright Section */}
+  <div className="bg-gray-100 text-black py-4 rounded-t-3xl">
+        <div className="container mx-auto px-6 lg:px-8">
+          <p className="text-center text-sm font-medium">
+            Copyright@2025 · Sawarn Empire
           </p>
-          <div className="mt-4 flex justify-center space-x-6 md:mt-0">
-            <Link href="/properties" className="text-sm text-muted-foreground hover:text-primary">
-              Properties
-            </Link>
-            <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary">
-              Contact Us
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

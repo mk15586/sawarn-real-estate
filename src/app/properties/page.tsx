@@ -16,10 +16,10 @@ type PropertiesPageProps = {
 export default function PropertiesPage({ searchParams }: PropertiesPageProps) {
   const properties = getProperties({
     type: searchParams.type,
-    minPrice: searchParams.minPrice ? Number(searchParams.minPrice) : undefined,
-    maxPrice: searchParams.maxPrice ? Number(searchParams.maxPrice) : undefined,
-    beds: searchParams.beds ? Number(searchParams.beds) : undefined,
-    baths: searchParams.baths ? Number(search_params.baths) : undefined,
+  minPrice: searchParams.minPrice ? Number(searchParams.minPrice) : undefined,
+  maxPrice: searchParams.maxPrice ? Number(searchParams.maxPrice) : undefined,
+  beds: searchParams.beds ? Number(searchParams.beds) : undefined,
+  baths: searchParams.baths ? Number(searchParams.baths) : undefined,
   });
   const propertyTypes = getPropertyTypes();
 

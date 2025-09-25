@@ -130,18 +130,23 @@ export const getProperties = (filters?: { featured?: boolean, type?: string, min
     if (filters.type) {
         filteredProperties = filteredProperties.filter(p => p.type === filters.type);
     }
-    if (filters.minPrice) {
-        filteredProperties = filteredProperties.filter(p => p.price >= filters.minPrice);
-    }
-    if (filters.maxPrice) {
-        filteredProperties = filteredProperties.filter(p => p.price <= filters.maxPrice);
-    }
-    if (filters.beds) {
-        filteredProperties = filteredProperties.filter(p => p.bedrooms >= filters.beds);
-    }
-    if (filters.baths) {
-        filteredProperties = filteredProperties.filter(p => p.bathrooms >= filters.baths);
-    }
+  const minPrice = filters.minPrice;
+  const maxPrice = filters.maxPrice;
+  const beds = filters.beds;
+  const baths = filters.baths;
+
+  if (minPrice != null) {
+    filteredProperties = filteredProperties.filter(p => p.price >= minPrice);
+  }
+  if (maxPrice != null) {
+    filteredProperties = filteredProperties.filter(p => p.price <= maxPrice);
+  }
+  if (beds != null) {
+    filteredProperties = filteredProperties.filter(p => p.bedrooms >= beds);
+  }
+  if (baths != null) {
+    filteredProperties = filteredProperties.filter(p => p.bathrooms >= baths);
+  }
   }
 
   return filteredProperties;

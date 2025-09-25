@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "prop1_main",
+      "description": "Modern villa exterior",
+      "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjB2aWxsYXxlbnwwfHx8fDE3NTg3MzU1ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern villa"
+    },
+    {
+      "id": "prop1_living",
+      "description": "Spacious living room with large windows",
+      "imageUrl": "https://images.unsplash.com/photo-1618220179428-22790b461013?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsaXZpbmclMjByb29tfGVufDB8fHx8MTc1ODgwNjQwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "living room"
+    },
+    {
+      "id": "prop1_kitchen",
+      "description": "Modern kitchen with island",
+      "imageUrl": "https://images.unsplash.com/photo-1610177534644-34d881503b83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBraXRjaGVufGVufDB8fHx8MTc1ODcxOTMzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern kitchen"
+    },
+    {
+      "id": "prop2_main",
+      "description": "Cozy suburban house with a garden",
+      "imageUrl": "https://images.unsplash.com/photo-1605146768851-eda79da39897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdWJ1cmJhbiUyMGhvdXNlfGVufDB8fHx8MTc1ODc5Njg4NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "suburban house"
+    },
+    {
+      "id": "prop2_bedroom",
+      "description": "Bright bedroom with a view",
+      "imageUrl": "https://images.unsplash.com/photo-1627074899165-89603d93e12f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxicmlnaHQlMjBiZWRyb29tfGVufDB8fHx8MTc1ODgxODY5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bright bedroom"
+    },
+    {
+      "id": "prop3_main",
+      "description": "Luxury downtown apartment building",
+      "imageUrl": "https://images.unsplash.com/photo-1632743441209-8a09b8a37e25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBhcGFydG1lbnR8ZW58MHx8fHwxNzU4NzI5ODM4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury apartment"
+    },
+    {
+      "id": "prop3_balcony",
+      "description": "Balcony with a city view",
+      "imageUrl": "https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaXR5JTIwdmlld3xlbnwwfHx8fDE3NTg3ODU5Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city view"
+    },
+    {
+      "id": "prop4_main",
+      "description": "Classic brick townhouse",
+      "imageUrl": "https://images.unsplash.com/photo-1561287712-26aad53cdcbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxicmljayUyMHRvd25ob3VzZXxlbnwwfHx8fDE3NTg4MTg2OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brick townhouse"
+    },
+    {
+      "id": "prop5_main",
+      "description": "Rustic countryside cottage",
+      "imageUrl": "https://images.unsplash.com/photo-1616737833567-11ec6210c5a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxydXN0aWMlMjBjb3R0YWdlfGVufDB8fHx8MTc1ODgxODY5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rustic cottage"
+    },
+    {
+      "id": "prop6_main",
+      "description": "Sleek penthouse with glass walls",
+      "imageUrl": "https://images.unsplash.com/photo-1745970649913-2edb9dca4f74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtb2Rlcm4lMjBwZW50aG91c2V8ZW58MHx8fHwxNzU4NzM3MDc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern penthouse"
+    }
+  ]
 }

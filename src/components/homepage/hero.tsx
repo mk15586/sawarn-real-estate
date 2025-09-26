@@ -10,7 +10,7 @@ export default function HomepageHero() {
         <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl max-w-[calc(100%-96px)] mx-auto">
           {/* Background Image */}
           <Image
-            src="/homepage-images/homepage-1.png"
+            src="/homepage-images/homepage-1.jpg"
             alt="Hero"
             fill
             className="object-cover"
@@ -53,7 +53,7 @@ export default function HomepageHero() {
               <div className="w-full h-full flex items-center justify-center">
                 <div className="relative w-64 md:w-80 lg:w-88 h-36 md:h-44 lg:h-52 bg-white/5 rounded-xl overflow-hidden shadow-lg">
                   <Image
-                    src="/homepage-images/homepage-2.png"
+                    src="/homepage-images/homepage-2.jpg"
                     alt="Contemporary bedroom interior"
                     fill
                     className="object-cover"

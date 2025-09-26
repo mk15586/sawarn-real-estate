@@ -36,8 +36,12 @@ export default function Header() {
           key={href}
           href={href}
           className={cn(
-            'text-sm font-medium transition-colors hover:text-primary',
-            pathname === href ? 'text-primary' : 'text-muted-foreground'
+            'relative text-sm font-medium transition-colors duration-300 group',
+            pathname === href 
+              ? 'text-primary after:scale-x-100' 
+              : 'text-muted-foreground hover:text-foreground',
+            // Modern sliding underline effect
+            'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-center after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100'
           )}
         >
           {label}
@@ -50,10 +54,17 @@ export default function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full border-b transition-colors duration-150",
+        // Added curved bottom corners
+        "rounded-b-3xl",
         isScrolled
           ? "bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60"
           : "bg-white"
       )}
+      style={{
+        // Custom curved corners for more dramatic effect
+        borderBottomLeftRadius: '2rem',
+        borderBottomRightRadius: '2rem',
+      }}
     >
       <div className="container flex h-20 items-center">
         {/* Logo / Brand */}
@@ -75,8 +86,14 @@ export default function Header() {
                 key={href}
                 href={href}
                 className={cn(
-                  'text-base font-semibold transition-colors hover:text-primary',
-                  pathname === href ? 'text-primary' : 'text-muted-foreground'
+                  'relative text-base font-semibold transition-all duration-300 ease-out group px-1 py-2',
+                  pathname === href 
+                    ? 'text-primary after:scale-x-100' 
+                    : 'text-muted-foreground hover:text-foreground hover:-translate-y-0.5',
+                  // Enhanced sliding underline with gradient
+                  'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-center after:scale-x-0 after:bg-gradient-to-r after:from-primary after:to-primary/70 after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100',
+                  // Subtle glow effect on hover
+                  'hover:drop-shadow-sm'
                 )}
               >
                 {label}
@@ -86,10 +103,21 @@ export default function Header() {
 
           <Link href="/contact">
             <Button
-              className="rounded-full border-black text-black bg-transparent hover:bg-muted/5"
+              className={cn(
+                "relative rounded-full border-2 border-black text-black bg-transparent font-semibold px-6 py-2 overflow-hidden group",
+                "transition-all duration-300 ease-out",
+                // Multi-layered hover effects
+                "hover:scale-105 hover:shadow-lg hover:-translate-y-0.5",
+                // Background slide effect
+                "before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:to-gray-800 before:transition-transform before:duration-300 before:ease-out before:scale-x-0 before:origin-left hover:before:scale-x-100",
+                // Text color change
+                "hover:text-white hover:border-black",
+                // Shine effect
+                "after:absolute after:inset-0 after:bg-gradient-to-r after:from-transparent after:via-white/10 after:to-transparent after:translate-x-[-100%] after:transition-transform after:duration-700 hover:after:translate-x-[100%]"
+              )}
               variant="outline"
             >
-              Enquire Now
+              <span className="relative z-10">Enquire Now</span>
             </Button>
           </Link>
         </div>
@@ -103,7 +131,13 @@ export default function Header() {
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent 
+              side="right"
+              className="rounded-bl-3xl"
+              style={{
+                borderBottomLeftRadius: '2rem',
+              }}
+            >
               <div className="flex flex-col gap-6 pt-6">
                 <Link href="/" className="mb-2 flex items-center">
                   <Image
@@ -114,11 +148,40 @@ export default function Header() {
                     className="object-contain"
                   />
                 </Link>
-                <NavLinks className="flex-col items-start space-y-4 text-lg" />
+                
+                {/* Mobile Navigation Links with Enhanced Hover */}
+                <nav className="flex flex-col items-start space-y-4">
+                  {navItems.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className={cn(
+                        'relative text-lg font-medium transition-all duration-300 group px-2 py-1 w-full',
+                        pathname === href 
+                          ? 'text-primary after:scale-x-100' 
+                          : 'text-muted-foreground hover:text-foreground hover:translate-x-2',
+                        // Mobile sliding underline
+                        'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100'
+                      )}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </nav>
+                
                 <div className="mt-2">
                   <Link href="/contact">
-                    <Button className="w-full" variant="outline">
-                      Enquire Now
+                    <Button 
+                      className={cn(
+                        "w-full relative overflow-hidden group border-2 border-black",
+                        "transition-all duration-300 ease-out",
+                        "hover:scale-105 hover:shadow-lg",
+                        "before:absolute before:inset-0 before:bg-black before:transition-transform before:duration-300 before:ease-out before:scale-x-0 before:origin-left hover:before:scale-x-100",
+                        "hover:text-white"
+                      )} 
+                      variant="outline"
+                    >
+                      <span className="relative z-10">Enquire Now</span>
                     </Button>
                   </Link>
                 </div>

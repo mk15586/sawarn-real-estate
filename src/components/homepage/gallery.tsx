@@ -1,5 +1,7 @@
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
 export default function HomepageGallery() {
   const galleryItems = [
@@ -53,25 +55,125 @@ export default function HomepageGallery() {
     }
   ];
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Animate header elements
+          if (headerRef.current) {
+            headerRef.current.style.opacity = "1";
+            headerRef.current.style.transform = "translateY(0)";
+          }
+
+          // Animate title with delay
+          setTimeout(() => {
+            if (titleRef.current) {
+              titleRef.current.style.opacity = "1";
+              titleRef.current.style.transform = "translateY(0)";
+            }
+          }, 300);
+
+          // Animate description with more delay
+          setTimeout(() => {
+            if (descriptionRef.current) {
+              descriptionRef.current.style.opacity = "1";
+              descriptionRef.current.style.transform = "translateY(0)";
+            }
+          }, 500);
+
+          // Animate button with even more delay
+          setTimeout(() => {
+            if (buttonRef.current) {
+              buttonRef.current.style.opacity = "1";
+              buttonRef.current.style.transform = "translateY(0)";
+            }
+          }, 700);
+
+          // Animate gallery cards with staggered delay
+          cardRefs.current.forEach((card, index) => {
+            if (card) {
+              setTimeout(() => {
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0) scale(1)";
+              }, 900 + (index * 150));
+            }
+          });
+
+          // Animate CTA section last
+          setTimeout(() => {
+            if (ctaRef.current) {
+              ctaRef.current.style.opacity = "1";
+              ctaRef.current.style.transform = "translateY(0)";
+            }
+          }, 1800);
+        }
+      });
+    }, observerOptions);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addToCardRefs = (el: HTMLDivElement | null) => {
+    if (el && !cardRefs.current.includes(el)) {
+      cardRefs.current.push(el);
+    }
+  };
+
   return (
-    <section className="py-16 md:py-28 bg-white">
+    <section 
+      ref={sectionRef}
+      className="py-16 md:py-28 bg-white"
+    >
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Enhanced Header Section */}
-        <div className="flex flex-col lg:flex-row items-start justify-between mb-16 lg:mb-20">
+        <div 
+          ref={headerRef}
+          className="flex flex-col lg:flex-row items-start justify-between mb-16 lg:mb-20 transition-all duration-700 ease-out opacity-0 transform translate-y-8"
+          style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
+        >
           <div className="max-w-2xl mb-8 lg:mb-0">
             <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 block">
               Premium Collection
             </span>
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight text-black mb-6">
+            <h2 
+              ref={titleRef}
+              className="text-5xl md:text-6xl font-bold leading-tight text-black mb-6 transition-all duration-700 ease-out opacity-0 transform translate-y-8"
+              style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
+            >
               Discover Our <span className="text-gray-400">Signature</span> Properties
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p 
+              ref={descriptionRef}
+              className="text-lg text-gray-600 leading-relaxed transition-all duration-700 ease-out opacity-0 transform translate-y-8"
+              style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
+            >
               Curated selection of exceptional properties where luxury meets functionality. 
               Each space tells a unique story of craftsmanship and design excellence.
             </p>
           </div>
           
-          <div className="text-right flex flex-col items-end">
+          <div 
+            ref={buttonRef}
+            className="text-right flex flex-col items-end transition-all duration-700 ease-out opacity-0 transform translate-y-8"
+            style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
+          >
             <button className="bg-black hover:bg-gray-800 border-2 border-black rounded-full px-10 py-4 font-medium transition-all duration-300 group mb-4 shadow-lg hover:shadow-xl">
               <Link href="/properties" className="flex items-center gap-3 text-white group-hover:text-white">
                 Explore Collection
@@ -99,7 +201,11 @@ export default function HomepageGallery() {
         {/* Enhanced Masonry Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
           {/* Feature Card - Large */}
-          <div className="md:col-span-8 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div 
+            ref={addToCardRefs}
+            className="md:col-span-8 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 opacity-0 transform translate-y-12 scale-95"
+            style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out, scale 700ms ease-out" }}
+          >
             <Image 
               src="/homepage-images/homepage-1.jpg" 
               alt="Atlantis Residence" 
@@ -127,7 +233,11 @@ export default function HomepageGallery() {
           </div>
 
           {/* Secondary Feature Card */}
-          <div className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div 
+            ref={addToCardRefs}
+            className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 opacity-0 transform translate-y-12 scale-95"
+            style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out, scale 700ms ease-out" }}
+          >
             <Image 
               src="/homepage-images/homepage-2.jpg" 
               alt="Ocean View Suite" 
@@ -152,7 +262,11 @@ export default function HomepageGallery() {
           </div>
 
           {/* Third Card */}
-          <div className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div 
+            ref={addToCardRefs}
+            className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 opacity-0 transform translate-y-12 scale-95"
+            style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out, scale 700ms ease-out" }}
+          >
             <Image 
               src="/homepage-images/homepage-3.jpg" 
               alt="Executive Penthouse" 
@@ -175,7 +289,11 @@ export default function HomepageGallery() {
           </div>
 
           {/* Fourth Card */}
-          <div className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div 
+            ref={addToCardRefs}
+            className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 opacity-0 transform translate-y-12 scale-95"
+            style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out, scale 700ms ease-out" }}
+          >
             <Image 
               src="/homepage-images/homepage-1.jpg" 
               alt="Garden Villas" 
@@ -195,7 +313,11 @@ export default function HomepageGallery() {
           </div>
 
           {/* Fifth Card */}
-          <div className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500">
+          <div 
+            ref={addToCardRefs}
+            className="md:col-span-4 relative group rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 opacity-0 transform translate-y-12 scale-95"
+            style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out, scale 700ms ease-out" }}
+          >
             <Image 
               src="/homepage-images/homepage-2.jpg" 
               alt="Heritage Collection" 
@@ -219,7 +341,11 @@ export default function HomepageGallery() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div 
+          ref={ctaRef}
+          className="text-center mt-16 transition-all duration-700 ease-out opacity-0 transform translate-y-8"
+          style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
+        >
           <div className="inline-flex items-center gap-2 text-gray-500 text-sm font-medium mb-4">
             <div className="w-20 h-px bg-gray-300"></div>
             Explore More Properties

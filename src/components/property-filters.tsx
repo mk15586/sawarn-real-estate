@@ -24,7 +24,8 @@ export default function PropertyFilters({ propertyTypes }: PropertyFiltersProps)
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
-      if (value) {
+      // Treat the sentinel value 'any' as clearing the filter
+      if (value && value !== 'any') {
         params.set(name, value);
       } else {
         params.delete(name);
@@ -53,12 +54,12 @@ export default function PropertyFilters({ propertyTypes }: PropertyFiltersProps)
         <div className="grid grid-cols-1 items-end gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             <div className="space-y-2">
                 <label className="text-sm font-medium">Type</label>
-                <Select onValueChange={handleSelectChange('type')} value={searchParams.get('type') || ''}>
+        <Select onValueChange={handleSelectChange('type')} value={searchParams.get('type') || 'any'}>
                     <SelectTrigger>
                         <SelectValue placeholder="Any Type" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="">Any Type</SelectItem>
+            <SelectItem value="any">Any Type</SelectItem>
                         {propertyTypes.map(type => (
                             <SelectItem key={type} value={type}>{type}</SelectItem>
                         ))}
@@ -78,12 +79,12 @@ export default function PropertyFilters({ propertyTypes }: PropertyFiltersProps)
 
             <div className="space-y-2">
                 <label className="text-sm font-medium">Beds</label>
-                <Select onValueChange={handleSelectChange('beds')} value={searchParams.get('beds') || ''}>
+        <Select onValueChange={handleSelectChange('beds')} value={searchParams.get('beds') || 'any'}>
                     <SelectTrigger>
                         <SelectValue placeholder="Any" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="">Any</SelectItem>
+            <SelectItem value="any">Any</SelectItem>
                         {[1, 2, 3, 4, 5].map(v => <SelectItem key={v} value={String(v)}>{v}+ Beds</SelectItem>)}
                     </SelectContent>
                 </Select>
@@ -91,12 +92,12 @@ export default function PropertyFilters({ propertyTypes }: PropertyFiltersProps)
             
             <div className="space-y-2">
                 <label className="text-sm font-medium">Baths</label>
-                <Select onValueChange={handleSelectChange('baths')} value={searchParams.get('baths') || ''}>
+        <Select onValueChange={handleSelectChange('baths')} value={searchParams.get('baths') || 'any'}>
                     <SelectTrigger>
                         <SelectValue placeholder="Any" />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="">Any</SelectItem>
+            <SelectItem value="any">Any</SelectItem>
                         {[1, 2, 3, 4, 5].map(v => <SelectItem key={v} value={String(v)}>{v}+ Baths</SelectItem>)}
                     </SelectContent>
                 </Select>

@@ -78,7 +78,7 @@ export default function AboutPage() {
   return (
     <main className="bg-white overflow-hidden">
       {/* Enhanced Hero Section */}
-      <section className="relative bg-[url('/homepage-images/homepage-1.jpg')] bg-cover bg-center h-screen min-h-[700px] rounded-b-4xl overflow-hidden flex items-center">
+    <section className="relative bg-[url('/homepage-images/homepage-1.jpg')] bg-cover bg-center h-[60vh] sm:h-screen min-h-[420px] md:min-h-[700px] rounded-b-4xl overflow-hidden flex items-center">
         {/* Dimmed static gradient overlay (match Contact hero) */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
       {/* Enhanced Gallery Strip */}
       <AnimatedSection className="container mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map((item, index) => (
             <AnimatedItem key={index} variants={scaleIn}>
               <motion.div 
@@ -166,7 +166,7 @@ export default function AboutPage() {
       {/* Animated headline removed — keep the styled static headline below to match the design */}
       {/* Headline (styled to match design) */}
       <section className="text-center py-16 md:py-28 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
+          <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold leading-tight text-black">
             Crafting Timeless Spaces
           </h2>

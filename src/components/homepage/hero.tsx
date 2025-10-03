@@ -64,10 +64,10 @@ export default function HomepageHero() {
   return (
     <section 
       ref={heroRef}
-      className="relative w-full h-[80vh] overflow-hidden mt-6 px-6"
+      className="relative w-full h-[60vh] sm:h-[80vh] overflow-hidden mt-4 sm:mt-6 px-4 sm:px-6"
     >
       <div className="w-full h-full">
-        <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl max-w-[calc(100%-96px)] mx-auto">
+  <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl max-w-full sm:max-w-[calc(100%-96px)] mx-auto">
           {/* Background Image */}
           <Image
             src="/homepage-images/homepage-1.jpg"
@@ -84,7 +84,7 @@ export default function HomepageHero() {
           <div className="absolute top-24 md:top-32 lg:top-40 xl:top-48 left-0 right-0 flex items-start justify-center z-20">
             <h1 
               ref={headingRef}
-              className="font-headline text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white drop-shadow-2xl text-center transition-all duration-700 ease-out opacity-0 transform translate-y-8"
+              className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white drop-shadow-2xl text-center transition-all duration-700 ease-out opacity-0 transform translate-y-8"
               style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
             >
               Contemporary
@@ -92,11 +92,11 @@ export default function HomepageHero() {
           </div>
 
           {/* Bottom Content Container - Side by Side Layout */}
-          <div className="absolute bottom-6 md:bottom-8 lg:bottom-12 left-6 md:left-8 lg:left-12 right-6 md:right-8 lg:right-12 flex flex-col md:flex-row gap-6 md:gap-8 z-10">
+          <div className="absolute bottom-6 md:bottom-8 lg:bottom-12 left-4 md:left-8 right-4 md:right-12 flex flex-col md:flex-row gap-4 md:gap-8 z-10">
             {/* Left Content Card */}
             <div 
               ref={leftCardRef}
-              className="flex-1 max-w-md bg-white/15 backdrop-blur-md px-6 md:px-8 py-6 md:py-8 rounded-2xl border border-white/25 shadow-2xl transition-all duration-700 ease-out opacity-0 transform translate-y-10"
+              className="flex-1 w-full max-w-md sm:max-w-md bg-white/15 backdrop-blur-md px-4 md:px-8 py-5 md:py-8 rounded-2xl border border-white/25 shadow-2xl transition-all duration-700 ease-out opacity-0 transform translate-y-10"
               style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
             >
               <p className="text-sm md:text-base text-white/95 leading-relaxed mb-4 md:mb-6">
@@ -106,7 +106,7 @@ export default function HomepageHero() {
               </p>
               <Button
                 asChild
-                className="bg-black hover:bg-black/90 text-white border-none px-5 md:px-6 py-2.5 md:py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm md:text-base"
+                className="w-full sm:w-auto bg-black hover:bg-black/90 text-white border-none px-5 md:px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm md:text-base justify-center"
               >
                 <Link href="/properties">
                   View More
@@ -118,14 +118,14 @@ export default function HomepageHero() {
             {/* Right Thumbnail Card - Transparent Container */}
             <div 
               ref={rightCardRef}
-              className="w-full md:w-80 lg:w-96 h-48 md:h-52 lg:h-56 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-4 md:p-6 transition-all duration-700 ease-out opacity-0 transform translate-y-10"
+              className="w-full md:w-80 lg:w-96 h-44 md:h-52 lg:h-56 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl p-3 md:p-6 transition-all duration-700 ease-out opacity-0 transform translate-y-10"
               style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
             >
               {/* center a smaller thumbnail inside the transparent card */}
               <div className="w-full h-full flex items-center justify-center">
                 <div 
                   ref={imageRef}
-                  className="relative w-64 md:w-80 lg:w-88 h-36 md:h-44 lg:h-52 bg-white/5 rounded-xl overflow-hidden shadow-lg transition-all duration-700 ease-out opacity-0 transform scale-95"
+                  className="relative w-48 md:w-64 lg:w-80 h-32 md:h-44 lg:h-52 bg-white/5 rounded-xl overflow-hidden shadow-lg transition-all duration-700 ease-out opacity-0 transform scale-95"
                   style={{ transition: "opacity 700ms ease-out, transform 700ms ease-out" }}
                 >
                   <Image

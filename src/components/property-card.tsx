@@ -17,7 +17,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     <Link href={`/properties/${id}`} className="group block">
       <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-xl">
         <CardHeader className="relative p-0">
-          <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <div className="relative aspect-[4/3] sm:aspect-[4/3] w-full overflow-hidden">
              <Image
                 src={mainImage.url}
                 alt={mainImage.description}
@@ -31,13 +31,13 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </Badge>
         </CardHeader>
         <CardContent className="flex-grow p-4">
-          <CardTitle className="mb-2 font-headline text-xl">{title}</CardTitle>
-          <p className="text-sm text-muted-foreground">{address}</p>
-          <p className="mt-4 font-headline text-2xl font-bold text-primary">
+          <CardTitle className="mb-2 font-headline text-lg sm:text-xl">{title}</CardTitle>
+          <p className="text-sm text-muted-foreground truncate">{address}</p>
+          <p className="mt-3 sm:mt-4 font-headline text-xl sm:text-2xl font-bold text-primary">
             ${price.toLocaleString()}
           </p>
         </CardContent>
-        <CardFooter className="flex justify-around bg-secondary/50 p-4 text-sm text-muted-foreground">
+        <CardFooter className="flex justify-between sm:justify-around items-center bg-secondary/50 p-3 sm:p-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <BedDouble className="h-4 w-4" />
             <span>{bedrooms} Beds</span>
